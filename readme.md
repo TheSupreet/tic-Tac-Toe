@@ -23,6 +23,7 @@ Players create or join a **room code** and the **server** validates every move.
 ---
 
 ## 📂 Structure
+```
 tic-tac-toe/
 ├─ client/
 │ ├─ src/
@@ -38,7 +39,7 @@ tic-tac-toe/
 │ ├─ index.js # Express + Socket.IO (authoritative rules)
 │ └─ package.json
 └─ README.md
-
+```
 
 ## 🎮 How to Play (Super Simple)
 
