@@ -1,0 +1,75 @@
+/* src/index.css
+   Works alongside Tailwind. Adds brand colors, crisp grid lines,
+   smoother SVG strokes, and a disabled button style like the mock. */
+
+:root {
+  --teal-600: #119e92; /* board/background */
+  --teal-700: #0f8c82;
+  --line: rgba(255, 255, 255, 0.4); /* grid line */
+  --x-stroke: #5b2d33; /* maroon X */
+  --o-stroke: rgba(255, 255, 255, 0.95); /* outlined O */
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--teal-600);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Make the card/board edges feel softer on all screens */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Buttons (like “Leave room (?)”) when disabled in the mock */
+button:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  filter: saturate(0.8);
+}
+
+/* Subtle hover for board cells (keeps teal vibe) */
+.grid > button:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* Ensure thin, consistent grid lines even on HiDPI */
+.grid > button {
+  border-color: var(--line) !important;
+}
+
+/* Crisp marks inside cells */
+svg {
+  shape-rendering: geometricPrecision;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Specific strokes for the X/O SVGs created in Board.jsx */
+svg circle {
+  stroke: var(--o-stroke);
+}
+svg line {
+  stroke: var(--x-stroke);
+}
+
+/* Small helper classes if you want to use them (optional) */
+.bg-teal-brand {
+  background: var(--teal-600) !important;
+}
+.bg-teal-brand:hover {
+  background: var(--teal-700) !important;
+}
+.text-dim {
+  color: rgba(255, 255, 255, 0.75);
+}
+.border-grid {
+  border-color: var(--line);
+}
